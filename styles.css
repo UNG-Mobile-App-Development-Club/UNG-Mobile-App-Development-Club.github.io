@@ -1,0 +1,110 @@
+/* Reset and basic styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: #f4f4f4;
+  font-family: Arial, sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container styles */
+.container {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Caution Tape */
+.caution-tape {
+  width: 100%;
+  height: 40px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #ffcc00,
+    #ffcc00 10px,
+    #000 10px,
+    #000 20px
+  );
+  margin-bottom: 20px;
+  animation: scrollTape 2s linear infinite;
+}
+
+@keyframes scrollTape {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+/* Animation container */
+.animation {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  margin: 20px auto;
+}
+
+/* Nail styling */
+.nail {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  height: 40px;
+  background: #555;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Hammer container */
+.hammer {
+  position: absolute;
+  /* Place the pivot at the top of the nail */
+  bottom: 40px;
+  left: 50%;
+  /* Center the hammer horizontally and set pivot to bottom center */
+  transform: translateX(-50%) rotate(-30deg);
+  transform-origin: bottom center;
+  animation: hammerSwing 2s infinite;
+}
+
+/* Hammer head (the striking part) */
+.hammer-head {
+  width: 40px;
+  height: 20px;
+  background: #333;
+  border-radius: 3px;
+  margin-left: -20px; /* Center the head over the handle */
+}
+
+/* Hammer handle */
+.hammer-handle {
+  width: 6px;
+  height: 60px;
+  background: #8b4513;
+  margin: 0 auto;
+}
+
+/* Keyframes for swinging hammer */
+@keyframes hammerSwing {
+  0% {
+    transform: translateX(-50%) rotate(-30deg);
+  }
+  50% {
+    /* Hammer is vertical at halfway: "hit" position */
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(-30deg);
+  }
+}
