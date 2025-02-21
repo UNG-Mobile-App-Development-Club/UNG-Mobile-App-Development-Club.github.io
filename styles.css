@@ -22,6 +22,38 @@ html, body {
   position: relative;
 }
 
+/* Toolbar styles */
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #002f87;
+  color: white;
+  align-items: center;
+  z-index: 1000;
+  display: flex;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+/* Logo in toolbar styles */
+.toolbar-logo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%
+}
+
+/* Links in toolbat styles */
+.toolbar-links {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
 /* Caution Tape */
 .caution-tape {
   width: 100%;
