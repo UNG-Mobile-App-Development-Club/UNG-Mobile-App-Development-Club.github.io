@@ -41,10 +41,34 @@ img { display:block; max-width:100%; }
 /* Footer */
 .footer { background:#002f87; color:#fff; text-align:center; padding:2rem 0; margin-top:2rem; }
 .footer p { margin-bottom:0.5rem; }
+.footer .social-links img { width:50px; margin:0 0.5rem; }
 
-/* Responsive */
 @media(max-width:768px) {
   .nav-menu { display:none; position:absolute; top:100%; left:0; background:#002f87; width:100%; flex-direction:column; padding:1rem; }
   .nav-menu.show { display:flex; }
   .menu-toggle { display:block; }
+}
+
+/* 
+
+/* ------------------------------------------------------------------
+   Accomplishments Page
+-------------------------------------------------------------------*/
+
+/* Accomplishments Page Styles */
+.accomplishments-hero { background: url('images/cottrell_center.jpg') center/cover no-repeat; color: #fff; text-align: center; padding: 6rem 1rem; height: 70vh}  
+.accomplishments-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; margin-top: 150px;}
+.accomplishments-hero p { font-size: 1.1rem; }
+
+.accomplishments-section { padding: 4rem 0; }
+.accomplishments-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+.accomplishment-card { position: relative; background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.accomplishment-card::before { content: attr(data-date); position: absolute; top: -0.7rem; left: 1rem; background: #ffcc00; color: #002f87; padding: 0.3rem 0.8rem; font-weight: 600; border-radius: 4px; font-size: 0.9rem; }
+.accomplishment-card h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.accomplishment-card p { font-size: 0.95rem; color: #555; }
+
+/* Responsive tweaks */
+@media(max-width: 600px) {
+  .accomplishments-hero { padding: 4rem 1rem; }
+  .accomplishments-hero h1 { font-size: 2rem; }
 }

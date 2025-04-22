@@ -22,32 +22,46 @@
       <button class="menu-toggle">☰</button>
     </div>
   </header>
+
   <section class="container page-content">
     <h1>Our Projects</h1>
-    <div class="grid">
-      <article class="card" id="contentcrafter">
-        <h2>ContentCrafter AI</h2>
-        <p>Dump media, get a week's worth of curated social posts, captions, and Canva prompts.</p>
-        <ul>
-          <li>Photo/video upload</li>
-          <li>Hashtag suggestions</li>
-          <li>Automated scheduling (coming soon)</li>
-        </ul>
-      </article>
-      <article class="card" id="roast">
-        <h2>Roast My Website</h2>
-        <p>Paste URL, get instant feedback on clarity, visuals, and copy tone.</p>
-      </article>
-      <article class="card" id="navigator">
-        <h2>AI Browser Navigator</h2>
-        <p>Build a LangChain+Selenium agent to log in, navigate, and automate tasks with AI prompts.</p>
-      </article>
+    <div id="project-grid" class="grid">
+      <!-- Dynamic project cards will be injected here -->
     </div>
   </section>
+
   <footer class="footer">
     <div class="container">
       <p>&copy; 2025 UNG App Development Club</p>
     </div>
   </footer>
+
+  <!-- Fetch and display GitHub repos dynamically -->
+  <script> 
+    const org = 'UNG-Mobile-App-Development-Club'; // replace with your GitHub org/user
+    const grid = document.getElementById('project-grid');
+
+    fetch(`https://api.github.com/orgs/${org}/repos?per_page=100`)
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(repo => {
+          if (!repo.private) {
+            const card = document.createElement('article');
+            card.className = 'card';
+            card.innerHTML = `
+              <h2>${repo.name}</h2>
+              <p>${repo.description || ''}</p>
+              <a href="${repo.html_url}" class="btn-secondary" target="_blank">View on GitHub</a>
+            `;
+            grid.appendChild(card);
+          }
+        });
+      })
+      .catch(err => {
+        console.error('Error fetching repos:', err);
+        grid.innerHTML = '<p>Unable to load projects at this time.</p>';
+      });
+  </script>
+
 </body>
 </html>
