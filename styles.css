@@ -1,178 +1,50 @@
-/* Reset and basic styling */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Reset & Base */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI', Tahoma, sans-serif; background:#f4f4f4; color:#333; }
+a { text-decoration:none; }
+img { display:block; max-width:100%; }
+.container { width:90%; max-width:1200px; margin:0 auto; padding:0 1rem; }
 
-html, body {
-  height: 100%;
-  background: #f4f4f4;
-  font-family: Arial, sans-serif;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* Navigation */
+.nav { background:#002f87; position:fixed; width:100%; top:0; left:0; z-index:1000; }
+.nav-container { display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
+.logo img { width:60px; }
+.nav-menu { display:flex; gap:1.5rem; }
+.nav-menu a { color:#fff; font-weight:600; }
+.menu-toggle { display:none; background:none; border:none; color:#fff; font-size:1.5rem; }
 
-/* Container styles */
-.container {
-  text-align: center;
-  padding: 20px;
-  position: relative;
-}
+/* Hero */
+.hero { height:80vh; background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; text-align:center; padding-top:100px; }
+.hero-content { color:#fff; }
+.hero-content h1 { font-size:3rem; margin-bottom:0.5rem; }
+.hero-content p { font-size:1.2rem; margin-bottom:1rem; }
+.btn-primary { background:#ffcc00; color:#002f87; padding:0.8rem 1.5rem; border-radius:4px; font-weight:600; }
 
-/* Toolbar styles */
-.toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background-color: #002f87;
-  color: white;
-  align-items: center;
-  z-index: 1000;
-  display: flex;
-  padding: 25px;
-  display: flex;
-  justify-content: space-between;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-}
+/* Sections */
+.page-content { padding:120px 0 60px; }
+.about, .featured-projects { padding-top:60px; }
+.about h2, .featured-projects h2 { font-size:2rem; margin-bottom:1rem; text-align:center; }
+.about p { max-width:700px; margin:0 auto; }
 
-/* Logo in toolbar styles */
-.toolbar-logo {
-  width: 75px;
-  height: 75px;
-  border-radius: 50%
-}
+/* Grid & Cards */
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+.card { background:#fff; padding:1.5rem; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.1); display:flex; flex-direction:column; }
+.card h2 { margin-bottom:0.5rem; }
+.card p, .card ul { margin-bottom:1rem; }
+.btn-secondary { color:#002f87; font-weight:600; }
 
-.toolbar-logo:hover {
-  opacity: 0.7;
-}
+/* Contact */
+.contact-page p { text-align:center; margin-bottom:1rem; }
+.contact-links { display:flex; justify-content:center; gap:2rem; }
+.contact-links img { width:50px; }
 
-/* Links in toolbar styles */
-.toolbar-links {
-  display: flex;
-  gap: 20px;
-  justify-content: flex-end;
-}
+/* Footer */
+.footer { background:#002f87; color:#fff; text-align:center; padding:2rem 0; margin-top:2rem; }
+.footer p { margin-bottom:0.5rem; }
 
-.toolbar-links a {
-  color: white;
-}
-
-.toolbar-links a:hover {
-  opacity: 0.7;
-}
-
-/* Image Banner Styles */
-.banner {
-  width: 100%;
-  height: 500px;
-  background: url('images/cottrell_center.jpg') no-repeat center center;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-/*Contact Us Styles */
-.contact-links {
-  height: 200px;
-  width: 200px;
-  z-index: 1;
-}
-
-.contact-links img {
-  height: 50px;
-  margin: 10px;
-}
-
-/* Caution Tape */
-.caution-tape {
-  width: 100%;
-  height: 40px;
-  background: repeating-linear-gradient(
-    -45deg,
-    #ffcc00,
-    #ffcc00 10px,
-    #000 10px,
-    #000 20px
-  );
-  margin-bottom: 20px;
-  animation: scrollTape 2s linear infinite;
-}
-
-@keyframes scrollTape {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 40px 40px;
-  }
-}
-
-/* Animation container */
-.animation {
-  position: relative;
-  width: 200px;
-  height: 150px;
-  margin: 20px auto;
-}
-
-/* Nail styling */
-.nail {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 6px;
-  height: 40px;
-  background: #555;
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-
-/* Hammer container */
-.hammer {
-  position: absolute;
-  /* Place the pivot at the top of the nail */
-  bottom: 40px;
-  left: 50%;
-  /* Center the hammer horizontally and set pivot to bottom center */
-  transform: translateX(-50%) rotate(-30deg);
-  transform-origin: bottom center;
-  animation: hammerSwing 2s infinite;
-}
-
-/* Hammer head (the striking part) */
-.hammer-head {
-  width: 40px;
-  height: 20px;
-  background: #333;
-  border-radius: 3px;
-  margin-left: -20px; /* Center the head over the handle */
-}
-
-/* Hammer handle */
-.hammer-handle {
-  width: 6px;
-  height: 60px;
-  background: #8b4513;
-  margin: 0 auto;
-}
-
-/* Keyframes for swinging hammer */
-@keyframes hammerSwing {
-  0% {
-    transform: translateX(-50%) rotate(-30deg);
-  }
-  50% {
-    /* Hammer is vertical at halfway: "hit" position */
-    transform: translateX(-50%) rotate(0deg);
-  }
-  100% {
-    transform: translateX(-50%) rotate(-30deg);
-  }
+/* Responsive */
+@media(max-width:768px) {
+  .nav-menu { display:none; position:absolute; top:100%; left:0; background:#002f87; width:100%; flex-direction:column; padding:1rem; }
+  .nav-menu.show { display:flex; }
+  .menu-toggle { display:block; }
 }

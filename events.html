@@ -1,42 +1,46 @@
+<!-- File: events.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Events</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="images/UNG_App_Development_Club_Icon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events - UNG App Dev Club</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/UNG_App_Development_Club_Icon.png">
 </head>
 <body>
-  <!-- Toolbar -->
-  <div class="toolbar">
-    <a href="index.html"><img src="images/UNG_App_Development_Club_Icon.png" alt="Club Logo" class="toolbar-logo"></a>
-    <div class="toolbar-links">
-      <a href="projects.html">Projects</a>
-      <a href="accomplishments.html">Accomplishments</a>
-      <a href="events.html">Events</a>
-      <a href="contact-us.html">Contact Us</a>
+  <header class="nav">
+    <div class="container nav-container">
+      <a href="index.html" class="logo"><img src="images/UNG_App_Development_Club_Icon.png" alt="Logo"></a>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="accomplishments.html">Accomplishments</a>
+        <a href="events.html">Events</a>
+        <a href="contact-us.html">Contact</a>
+      </nav>
+      <button class="menu-toggle">☰</button>
     </div>
-  </div>
-
-  <!--
-  <div class="container">
-     Caution Tape 
-    <div class="caution-tape"></div>
-
-    <h1>Website Under Construction</h1>
-
-    <div class="animation">
-
-      Hammer 
-      <div class="hammer">
-        <div class="hammer-head"></div>
-        <div class="hammer-handle"></div>
-      </div>
+  </header>
+  <section class="container page-content">
+    <h1>Upcoming Events</h1>
+    <div class="grid">
+      <article class="card">
+        <h2>Monthly Workshop</h2>
+        <p>Join us for hands-on tutorials in React, SwiftUI, and AI tools.</p>
+        <time datetime="2025-05-10">May 10, 2025</time>
+      </article>
+      <article class="card">
+        <h2>Campus Hackathon</h2>
+        <p>24-hour coding marathon with mentors, prizes, and pizza!</p>
+        <time datetime="2025-06-15">Jun 15, 2025</time>
+      </article>
     </div>
-
-    <p>Stay tuned for our new website!</p>
-  </div>
-  -->
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 UNG App Development Club</p>
+    </div>
+  </footer>
 </body>
 </html>

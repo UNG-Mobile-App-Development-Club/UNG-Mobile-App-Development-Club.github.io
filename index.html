@@ -1,42 +1,77 @@
+<!-- File: index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>UNG App Development Home</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="images/UNG_App_Development_Club_Icon.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNG App Development Club</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/UNG_App_Development_Club_Icon.png">
 </head>
 <body>
-  <!-- Toolbar -->
-  <div class="toolbar">
-    <a href="index.html"><img src="images/UNG_App_Development_Club_Icon.png" alt="Club Logo" class="toolbar-logo"></a>
-    <div class="toolbar-links">
-      <a href="projects.html">Projects</a>
-      <a href="accomplishments.html">Accomplishments</a>
-      <a href="events.html">Events</a>
-      <a href="contact-us.html">Contact Us</a>
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="images/UNG_App_Development_Club_Icon.png" alt="UNG App Dev Club Logo">
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="accomplishments.html">Accomplishments</a>
+        <a href="events.html">Events</a>
+        <a href="contact-us.html">Contact</a>
+      </nav>
+      <button class="menu-toggle">☰</button>
     </div>
-  </div>
-  <div class="banner"></div>
-  <!--
-  <div class="container">
-     Caution Tape 
-    <div class="caution-tape"></div>
+  </header>
 
-    <h1>Website Under Construction</h1>
+  <!-- Hero Section -->
+  <section class="hero" style="background-image: url('images/cottrell_center.jpg')">
+    <div class="container hero-content">
+      <h1>Welcome to the UNG App Development Club</h1>
+      <p>Building next-gen apps, fostering innovation, and collaborating across campus.</p>
+      <a href="projects.html" class="btn-primary">Explore Projects</a>
+    </div>
+  </section>
 
-    <div class="animation">
+  <!-- About Section -->
+  <section class="about container">
+    <h2>About Us</h2>
+    <p>The University of North Georgia App Development Club brings together students passionate about mobile and web technologies. Join workshops, hackathons, and community events.</p>
+  </section>
 
-      Hammer 
-      <div class="hammer">
-        <div class="hammer-head"></div>
-        <div class="hammer-handle"></div>
+  <!-- Featured Projects -->
+  <section class="featured-projects container">
+    <h2>Featured Projects</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>ContentCrafter AI</h3>
+        <p>An AI-powered generator for social media content tailored to small businesses.</p>
+        <a href="projects.html#contentcrafter" class="btn-secondary">Learn More</a>
+      </article>
+      <article class="card">
+        <h3>Roast My Website</h3>
+        <p>Instant AI feedback on website clarity, design, and usability.</p>
+        <a href="projects.html#roast" class="btn-secondary">Learn More</a>
+      </article>
+      <article class="card">
+        <h3>AI Browser Navigator</h3>
+        <p>LangChain + Selenium agent to automate web interactions with AI guidance.</p>
+        <a href="projects.html#navigator" class="btn-secondary">Learn More</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 UNG App Development Club</p>
+      <div class="social-links">
+        <a href="https://linkedin.com/company/university-of-north-georgia-app-development-club"><img src="images/linkedin.png" alt="LinkedIn"></a>
+        <a href="https://discord.gg/sqg5ZFz5xT"><img src="images/discord.png" alt="Discord"></a>
       </div>
     </div>
-
-    <p>Stay tuned for our new website!</p>
-  </div>
-  -->
+  </footer>
 </body>
 </html>
