@@ -1,28 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Website Under Construction</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNG App Development Club</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/UNG_App_Development_Club_Icon.png">
 </head>
 <body>
-  <div class="container">
-    <!-- Caution Tape -->
-    <div class="caution-tape"></div>
+  <!-- Navigation -->
+  <header class="nav">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="images/UNG_App_Development_Club_Icon.png" alt="UNG App Dev Club Logo">
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="accomplishments.html">Accomplishments</a>
+        <a href="events.html">Events</a>
+        <a href="contact-us.html">Contact</a>
+      </nav>
+      <button class="menu-toggle">☰</button>
+    </div>
+  </header>
 
-    <h1>Website Under Construction</h1>
+  <!-- Hero Section -->
+  <section class="hero" style="background-image: url('images/cottrell_center.jpg')">
+    <div class="container hero-content">
+      <h1>Welcome to the UNG App Development Club</h1>
+      <p>Building next-gen apps, fostering innovation, and collaborating across campus.</p>
+      <a href="projects.html" class="btn-primary">Explore Projects</a>
+    </div>
+  </section>
 
-    <div class="animation">
+  <!-- About Section -->
+  <section class="about container">
+    <h2>About Us</h2>
+    <p>The University of North Georgia App Development Club brings together students passionate about mobile and web technologies. Join workshops, hackathons, and community events.</p>
+  </section>
 
-      <!-- Hammer -->
-      <div class="hammer">
-        <div class="hammer-head"></div>
-        <div class="hammer-handle"></div>
+  <!-- Featured Projects -->
+  <section class="featured-projects container">
+    <h2>Featured Projects</h2>
+    <div id="project-grid-home" class="grid">
+      <!-- Dynamic project cards will be injected here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 UNG App Development Club</p>
+      <div class="social-links">
+        <a href="https://linkedin.com/company/university-of-north-georgia-app-development-club"><img src="images/linkedin.png" alt="LinkedIn"></a>
+        <a href="https://discord.gg/sqg5ZFz5xT"><img src="images/discord.png" alt="Discord"></a>
       </div>
     </div>
+  </footer>
 
-    <p>Stay tuned for our new website!</p>
-  </div>
+  <!-- Fetch and display GitHub repos on Home page -->
+  <script>
+    const org = 'UNG-Mobile-App-Development-Club';
+    const homeGrid = document.getElementById('project-grid-home');
+    fetch(`https://api.github.com/orgs/${org}/repos?per_page=100`)
+      .then(res => res.json())
+      .then(repos => {
+        repos.forEach(repo => {
+          if (!repo.private) {
+            const card = document.createElement('article');
+            card.className = 'card';
+            card.innerHTML = `
+              <h3>${repo.name}</h3>
+              <p>${repo.description || ''}</p>
+              <a href="${repo.html_url}" class="btn-secondary" target="_blank">View on GitHub</a>
+            `;
+            homeGrid.appendChild(card);
+          }
+        });
+      })
+      .catch(err => {
+        console.error('Error loading home projects:', err);
+        homeGrid.innerHTML = '<p>Unable to load featured projects.</p>';
+      });
+  </script>
 </body>
 </html>

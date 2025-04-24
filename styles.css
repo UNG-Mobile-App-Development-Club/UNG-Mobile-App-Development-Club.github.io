@@ -1,110 +1,442 @@
-/* Reset and basic styling */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Reset & Base */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI', Tahoma, sans-serif; background:#f4f4f4; color:#333; }
+a { text-decoration:none; }
+img { display:block; max-width:100%; }
+.container { width:90%; max-width:1200px; margin:0 auto; padding:0 1rem; }
+
+/* Navigation */
+.nav { background:#002f87; position:fixed; width:100%; top:0; left:0; z-index:1000; }
+.nav-container { display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
+.logo img { width:60px; }
+.nav-menu { display:flex; gap:1.5rem; }
+.nav-menu a { color:#fff; font-weight:600; }
+.menu-toggle { display:none; background:none; border:none; color:#fff; font-size:1.5rem; }
+
+/* Hero */
+.hero { height:80vh; background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; text-align:center; padding-top:100px; }
+.hero-content { color:#fff; }
+.hero-content h1 { font-size:3rem; margin-bottom:0.5rem; }
+.hero-content p { font-size:1.2rem; margin-bottom:1rem; }
+.btn-primary { background:#ffcc00; color:#002f87; padding:0.8rem 1.5rem; border-radius:4px; font-weight:600; }
+
+/* Sections */
+.page-content { padding:120px 0 60px; }
+.about, .featured-projects { padding-top:60px; }
+.about h2, .featured-projects h2 { font-size:2rem; margin-bottom:1rem; text-align:center; }
+.about p { max-width:700px; margin:0 auto; }
+
+/* Grid & Cards */
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+.card { background:#fff; padding:1.5rem; border-radius:8px; box-shadow:0 4px 6px rgba(0,0,0,0.1); display:flex; flex-direction:column; }
+.card h2 { margin-bottom:0.5rem; }
+.card p, .card ul { margin-bottom:1rem; }
+.btn-secondary { color:#002f87; font-weight:600; }
+
+/* Contact */
+.contact-page p { text-align:center; margin-bottom:1rem; }
+.contact-links { display:flex; justify-content:center; gap:2rem; }
+.contact-links img { width:50px; }
+
+/* Footer */
+.footer { background:#002f87; color:#fff; text-align:center; padding:2rem 0; margin-top:2rem; }
+.footer p { margin-bottom:0.5rem; }
+.footer .social-links img { width:50px; margin:0 0.5rem; }
+
+@media(max-width:768px) {
+  .nav-menu { display:none; position:absolute; top:100%; left:0; background:#002f87; width:100%; flex-direction:column; padding:1rem; }
+  .nav-menu.show { display:flex; }
+  .menu-toggle { display:block; }
 }
 
-html, body {
-  height: 100%;
-  background: #f4f4f4;
-  font-family: Arial, sans-serif;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* 
+
+/* ------------------------------------------------------------------
+   Accomplishments Page
+-------------------------------------------------------------------*/
+
+/* Accomplishments Page Styles */
+.accomplishments-hero { background: url('images/cottrell_center.jpg') center/cover no-repeat; color: #fff; text-align: center; padding: 6rem 1rem; height: 70vh}  
+.accomplishments-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; margin-top: 150px;}
+.accomplishments-hero p { font-size: 1.1rem; }
+
+.accomplishments-section { padding: 4rem 0; }
+.accomplishments-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+.accomplishment-card { position: relative; background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.accomplishment-card::before { content: attr(data-date); position: absolute; top: -0.7rem; left: 1rem; background: #ffcc00; color: #002f87; padding: 0.3rem 0.8rem; font-weight: 600; border-radius: 4px; font-size: 0.9rem; }
+.accomplishment-card h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.accomplishment-card p { font-size: 0.95rem; color: #555; }
+
+/* Responsive tweaks */
+@media(max-width: 600px) {
+  .accomplishments-hero { padding: 4rem 1rem; }
+  .accomplishments-hero h1 { font-size: 2rem; }
 }
 
-/* Container styles */
-.container {
+
+/* Timeline Section - UNG Color Scheme */
+/* Timeline Section - UNG Color Scheme */
+/* .timeline-section {
+  padding: 4rem 0;
+  background: #f9f9f9;
+}
+
+.timeline-section h2 {
   text-align: center;
-  padding: 20px;
+  color: #002f87;
+  margin-bottom: 2rem;
+}
+
+.timeline ul {
+  background: transparent;
+  padding: 50px 0;
   position: relative;
 }
 
-.caution-tape {
-  width: 100%;
-  height: 40px;
-  background: repeating-linear-gradient(
-    -45deg,
-    #ffcc00,
-    #ffcc00 10px,
-    #000 10px,
-    #000 20px
-  );
-  margin-bottom: 20px;
-  animation: scrollTape 2s linear infinite;
-}
-
-@keyframes scrollTape {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    /* Use a fractional shift for best alignment */
-    background-position: 28.2843px 0;
-  }
-}
-
-/* Animation container */
-.animation {
+.timeline ul li {
+  list-style-type: none;
   position: relative;
-  width: 200px;
-  height: 150px;
-  margin: 20px auto;
-}
-
-/* Nail styling */
-.nail {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
   width: 6px;
-  height: 40px;
-  background: #555;
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-
-/* Hammer container */
-.hammer {
-  position: absolute;
-  /* Place the pivot at the top of the nail */
-  bottom: 40px;
-  left: 50%;
-  /* Center the hammer horizontally and set pivot to bottom center */
-  transform: translateX(-50%) rotate(-30deg);
-  transform-origin: bottom center;
-  animation: hammerSwing 2s infinite;
-}
-
-/* Hammer head (the striking part) */
-.hammer-head {
-  width: 40px;
-  height: 20px;
-  background: #333;
-  border-radius: 3px;
-  margin-left: -20px; /* Center the head over the handle */
-}
-
-/* Hammer handle */
-.hammer-handle {
-  width: 6px;
-  height: 60px;
-  background: #8b4513;
   margin: 0 auto;
+  padding-top: 50px;
+  background: #ffcc00;
 }
 
-/* Keyframes for swinging hammer */
-@keyframes hammerSwing {
+.timeline ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #002f87;
+  border: 3px solid #ffcc00;
+  z-index: 1;
+}
+
+.timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 20px;
+  background: #002f87;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: all 0.5s ease-in-out;
+}
+
+.timeline ul li div::before {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+} */
+
+/* Even items */
+/* .timeline ul li:nth-child(even) div {
+  left: -439px;
+}
+
+.timeline ul li:nth-child(even) div::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #002f87;
+} */
+
+/* Odd items */
+/* .timeline ul li:nth-child(odd) div {
+  left: 45px;
+}
+
+.timeline ul li:nth-child(odd) div::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #002f87 transparent transparent;
+}
+
+time {
+  display: block;
+  font-size: 1.2rem;
+  color: #ffcc00;
+  font-weight: 600;
+  margin-bottom: 8px;
+} */
+
+/* Animation */
+/* .timeline ul li.in-view::after {
+  background: #ffcc00;
+}
+
+.timeline ul li div {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.timeline ul li:nth-child(odd) div {
+  transform: translate3d(200px, 0, 0);
+}
+
+.timeline ul li:nth-child(even) div {
+  transform: translate3d(-200px, 0, 0);
+}
+
+.timeline ul li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+} */
+
+/* Responsive Adjustments */
+/* @media (max-width: 900px) {
+  .timeline ul li div {
+    width: 300px;
+  }
+  .timeline ul li:nth-child(even) div {
+    left: -289px;
+  }
+}
+
+@media (max-width: 600px) {
+  .timeline ul li {
+    margin-left: 20px;
+  }
+  .timeline ul li div {
+    width: calc(100vw - 100px);
+  }
+  .timeline ul li:nth-child(even) div {
+    left: 45px;
+  }
+  .timeline ul li:nth-child(even) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #002f87 transparent transparent;
+  }
+} */
+
+
+/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul {
+  background: transparent;
+  padding: 50px 0;
+}
+
+.timeline ul li {
+  list-style-type: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background: #ffcc00;
+}
+/* #ffcc00  gold */
+/* #002f87 blue */
+.timeline ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+  z-index: 1;
+}
+
+.timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 15px;
+  background: #002f87;
+}
+
+.timeline ul li div::before {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline ul li:nth-child(odd) div {
+  left: 45px;
+}
+
+.timeline ul li:nth-child(odd) div::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #f45b69 transparent transparent;
+}
+
+.timeline ul li:nth-child(even) div {
+  left: -439px;
+}
+
+.timeline ul li:nth-child(even) div::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #002f87;
+}
+
+time {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ffcc00;
+}
+
+what {
+  color: #fff;
+}
+
+
+/* EFFECTS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.timeline ul li::after {
+  transition: background 0.5s ease-in-out;
+}
+
+.timeline ul li.in-view::after {
+  background: #002f87;
+}
+
+.timeline ul li div {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.timeline ul li:nth-child(odd) div {
+  transform: translate3d(200px, 0, 0);
+}
+
+.timeline ul li:nth-child(even) div {
+  transform: translate3d(-200px, 0, 0);
+}
+
+.timeline ul li.in-view div {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* GENERAL MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media screen and (max-width: 900px) {
+  .timeline ul li div {
+    width: 250px;
+  }
+  .timeline ul li:nth-child(even) div {
+    left: -289px;
+    /*250+45-6*/
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .timeline ul li {
+    margin-left: 20px;
+  }
+  .timeline ul li div {
+    width: calc(100vw - 91px);
+  }
+  .timeline ul li:nth-child(even) div {
+    left: 45px;
+  }
+  .timeline ul li:nth-child(even) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #f45b69 transparent transparent;
+  }
+}
+
+
+/* EXTRA/CLIP PATH STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.timeline-clippy ul li::after {
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+}
+
+.timeline-rhombus ul li::after {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.timeline-rhombus ul li div::before {
+  bottom: 12px;
+}
+
+.timeline-star ul li::after {
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.timeline-heptagon ul li::after {
+  clip-path: polygon(
+    50% 0%,
+    90% 20%,
+    100% 60%,
+    75% 100%,
+    25% 100%,
+    0% 60%,
+    10% 20%
+  );
+}
+
+.timeline-infinite ul li::after {
+  animation: scaleAnimation 2s infinite;
+}
+
+@keyframes scaleAnimation {
   0% {
-    transform: translateX(-50%) rotate(-30deg);
+    transform: translateX(-50%) scale(1);
   }
   50% {
-    /* Hammer is vertical at halfway: "hit" position */
-    transform: translateX(-50%) rotate(0deg);
+    transform: translateX(-50%) scale(1.25);
   }
   100% {
-    transform: translateX(-50%) rotate(-30deg);
+    transform: translateX(-50%) scale(1);
   }
+}
+
+
+/* FOOTER STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.page-footer {
+  position: fixed;
+  right: 0;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: black;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.page-footer a {
+  display: flex;
+  margin-left: 4px;
 }
